@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { validPaths } from "./lib/paths";
+import { publicPaths, validPaths } from "./lib/paths";
 
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
@@ -25,6 +25,14 @@ export function middleware(request: NextRequest) {
     const redirectPath = cookie || "/";
     return NextResponse.redirect(new URL(redirectPath, request.url));
   }
+
+  const token = request.cookies.get("token")?.value;
+
+  if (token && publicPaths.includes(path)) {
+    const redirectPath = "/";
+    return NextResponse.redirect(new URL(redirectPath, request.url));
+  }
+
   return response;
 }
 

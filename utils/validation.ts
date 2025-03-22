@@ -7,11 +7,19 @@ export const validateEmail = (email: string | undefined): string | null => {
   return null;
 };
 
-export const validateUsername = (
-  username: string | undefined
+export const validateFirstName = (
+  firstName: string | undefined
 ): string | null => {
-  if (!username) return ERROR_MESSAGES.USERNAME_REQUIRED;
-  if (!usernameRegex.test(username)) return ERROR_MESSAGES.USERNAME_INVALID;
+  if (!firstName) return ERROR_MESSAGES.FIRSTNAME_REQUIRED;
+  if (!usernameRegex.test(firstName)) return ERROR_MESSAGES.FIRSTNAME_INVALID;
+  return null;
+};
+
+export const validateLastName = (
+  lastName: string | undefined
+): string | null => {
+  if (!lastName) return ERROR_MESSAGES.LASTNAME_REQUIRED;
+  if (!usernameRegex.test(lastName)) return ERROR_MESSAGES.LASTNAME_INVALID;
   return null;
 };
 
@@ -35,15 +43,19 @@ export const validatePasswordMatch = (
 
 export const validationReg = (
   email: string | undefined,
-  username: string | undefined,
+  firstName: string | undefined,
+  lastName: string | undefined,
   password: string | undefined,
   passwordTwo?: string
 ): string | null => {
   const emailError = validateEmail(email);
   if (emailError) return emailError;
 
-  const usernameError = validateUsername(username);
-  if (usernameError) return usernameError;
+  const firstNameError = validateFirstName(firstName);
+  if (firstNameError) return firstNameError;
+
+  const lastNameError = validateFirstName(lastName);
+  if (lastNameError) return lastNameError;
 
   const passwordError = validatePassword(password);
   if (passwordError) return passwordError;
@@ -55,11 +67,11 @@ export const validationReg = (
 };
 
 export const validationLog = (
-  username: string | undefined,
+  email: string | undefined,
   password: string | undefined
 ): string | null => {
-  const usernameError = validateUsername(username);
-  if (usernameError) return usernameError;
+  const emailError = validateEmail(email);
+  if (emailError) return emailError;
 
   const passwordError = validatePassword(password);
   if (passwordError) return passwordError;
