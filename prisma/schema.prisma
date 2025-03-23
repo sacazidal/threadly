@@ -24,7 +24,7 @@ model Product {
   id          Int      @id @default(autoincrement())
   name        String   @unique
   description String
-  imageUrl    String
+  imageUrl    String   @default("null") @map("image_url")
   price       Int
   category    String
   createdAt   DateTime @default(now()) @map("created_at")
