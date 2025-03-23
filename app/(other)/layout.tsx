@@ -12,10 +12,12 @@ export default function RootLayout({
   return (
     <div className="flex flex-col min-h-screen">
       <Cookies />
-      <OverHeader />
-      <Header />
-      <Navigation />
-      <main className="grow">{children}</main>
+      <div className="flex flex-col px-3 grow">
+        <OverHeader />
+        <Header />
+        <Navigation />
+        <main>{children}</main>
+      </div>
       <Footer />
     </div>
   );
