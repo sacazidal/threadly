@@ -7,8 +7,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const awaitProductId = await params;
-  const productId = Number(awaitProductId.id);
+  const productId = Number(params.id);
 
   if (isNaN(productId)) {
     return NextResponse.json({ error: "Invalid product ID" }, { status: 400 });
