@@ -1,7 +1,7 @@
 export interface SearchResult {
   id: number;
   name: string;
-  description?: string;
+  description: string;
   category: string;
   imageUrl: string;
   price: number;

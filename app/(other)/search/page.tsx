@@ -42,6 +42,8 @@ export default async function SearchPage({
             <div>
               <h2 className="font-semibold">{result.name}</h2>
               <p className="text-sm text-neutral-400">{result.category}</p>
+              <p className="text-sm text-neutral-400">{result.description}</p>
+              <p className="text-sm text-neutral-400">{result.price}</p>
             </div>
             <Image
               src={result.imageUrl}
