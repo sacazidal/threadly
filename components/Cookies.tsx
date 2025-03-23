@@ -33,12 +33,12 @@ const Cookies = () => {
   if (!isMounted) return null;
 
   return (
-    <div
+    <article
       className={`py-1 md:py-2 bg-neutral-950 transition-all duration-500 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
       }`}
     >
-      <div className="flex items-center justify-center gap-x-2 px-3">
+      <div className="max-w-screen-2xl mx-auto flex items-center justify-center gap-x-2 px-3">
         <div className="text-[8px] md:text-[10px] text-center">
           Продолжая использовать{" "}
           <span className={`${poppins.className} font-bold`}>threadly.ru</span>,
@@ -54,7 +54,7 @@ const Cookies = () => {
         </div>
         <CloseCookies onClose={handleClose} />
       </div>
-    </div>
+    </article>
   );
 };
 export default Cookies;
