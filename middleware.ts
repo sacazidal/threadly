@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
 
   const token = request.cookies.get("token")?.value;
 
-  if (token && publicPaths.includes(path)) {
+  if (token && isPublicPath(path)) {
     const redirectPath = "/";
     return NextResponse.redirect(new URL(redirectPath, request.url));
   }
@@ -37,5 +37,19 @@ export function middleware(request: NextRequest) {
 }
 
 function checkIfPathExists(path: string): boolean {
-  return validPaths.includes(path);
+  return validPaths.some((validPath) => {
+    if (validPath instanceof RegExp) {
+      return validPath.test(path);
+    }
+    return validPath === path;
+  });
+}
+
+function isPublicPath(path: string): boolean {
+  return publicPaths.some((publicPath) => {
+    if (publicPath instanceof RegExp) {
+      return publicPath.test(path);
+    }
+    return publicPath === path;
+  });
 }
