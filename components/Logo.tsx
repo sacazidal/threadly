@@ -1,9 +1,10 @@
 import { poppins } from "@/lib/fonts";
 import Image from "next/image";
+import Link from "next/link";
 
 const Logo = () => {
   return (
-    <div className="flex items-center gap-x-2">
+    <Link href={"/"} className="flex items-center gap-x-2">
       <div className="relative w-12 h-12 bg-neutral-200 rounded-sm">
         <Image
           src={"/images/logo/threadly.webp"}
@@ -14,7 +15,7 @@ const Logo = () => {
         />
       </div>
       <h1 className={`${poppins.className} font-bold text-xl`}>Threadly</h1>
-    </div>
+    </Link>
   );
 };
 export default Logo;
