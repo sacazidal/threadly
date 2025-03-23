@@ -1,10 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function GET({ params }: { params: { id: string } }) {
-  const productId = Number(params.id);
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const awaitProductId = await params;
+  const productId = Number(awaitProductId.id);
 
   if (isNaN(productId)) {
     return NextResponse.json({ error: "Invalid product ID" }, { status: 400 });
