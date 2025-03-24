@@ -1,8 +1,9 @@
+import { apiRoutes } from "@/lib/api";
 import { SearchResult } from "@/types";
 import Image from "next/image";
 
 async function getProductById(id: number): Promise<SearchResult | null> {
-  const response = await fetch(`/api/product/${id}`);
+  const response = await fetch(`${apiRoutes.product}/${id}`);
   if (!response.ok) {
     return null;
   }

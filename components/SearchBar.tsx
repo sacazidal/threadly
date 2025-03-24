@@ -7,6 +7,7 @@ import { SearchResult } from "@/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { apiRoutes } from "@/lib/api";
 
 const SearchBar = () => {
   const [query, setQuery] = useState<string>("");
@@ -39,7 +40,7 @@ const SearchBar = () => {
     const delayDebounceFn = setTimeout(async () => {
       try {
         const response = await fetch(
-          `/api/search?q=${encodeURIComponent(query)}`
+          `${apiRoutes.search}?q=${encodeURIComponent(query)}`
         );
         const data = await response.json();
         setResults(data);
