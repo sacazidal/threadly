@@ -94,19 +94,19 @@ const SearchBar = () => {
       <AnimatePresence>
         {isOpen && results.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
             className="absolute top-full left-0 right-0 bg-neutral-800 rounded-lg shadow-lg mt-2 z-10"
           >
             <ul className="py-2 px-2">
               {results.map((result) => (
                 <motion.li
                   key={result.id}
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: 0 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  exit={{ opacity: 0, y: 0 }}
                   transition={{ duration: 0.2 }}
                   className="px-4 py-2 hover:bg-neutral-700 rounded-lg transition-all duration-300 flex items-center justify-between cursor-pointer border border-neutral-600"
                   onClick={() => handleResultClick(result.id)}
