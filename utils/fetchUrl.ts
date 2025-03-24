@@ -19,11 +19,11 @@ export const fetchUrlRecovery =
     : "http://localhost:3000/api/recovery";
 
 export const fetchUrlSearch =
-  process.env.NODE_ENV === "production"
+  process.env.VERCEL || process.env.NODE_ENV === "production"
     ? "https://threadly-three.vercel.app/api/search"
     : "http://localhost:3000/api/search";
 
 export const fetchUrlById =
-  process.env.NODE_ENV === "production"
+  process.env.VERCEL || process.env.NODE_ENV === "production"
     ? "https://threadly-three.vercel.app/api/product"
     : "http://localhost:3000/api/product";
