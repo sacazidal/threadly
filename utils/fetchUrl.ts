@@ -17,3 +17,13 @@ export const fetchUrlRecovery =
   process.env.NODE_ENV === "production"
     ? "/api/recovery"
     : "http://localhost:3000/api/recovery";
+
+export const fetchUrlSearch =
+  process.env.NODE_ENV === "production"
+    ? "/api/search"
+    : "http://localhost:3000/api/search";
+
+export const fetchUrlById =
+  process.env.NODE_ENV === "production"
+    ? "/api/product"
+    : "http://localhost:3000/api/product";

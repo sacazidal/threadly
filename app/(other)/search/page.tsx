@@ -1,9 +1,10 @@
 import { SearchResult } from "@/types";
+import { fetchUrlSearch } from "@/utils/fetchUrl";
 import Image from "next/image";
 
 async function getSearchResults(query: string): Promise<SearchResult[]> {
   const response = await fetch(
-    `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
+    `${fetchUrlSearch}?q=${encodeURIComponent(query)}`
   );
   if (!response.ok) {
     throw new Error("Ошибка при загрузке результатов");

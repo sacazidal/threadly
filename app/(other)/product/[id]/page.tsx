@@ -1,8 +1,9 @@
 import { SearchResult } from "@/types";
+import { fetchUrlById } from "@/utils/fetchUrl";
 import Image from "next/image";
 
 async function getProductById(id: number): Promise<SearchResult | null> {
-  const response = await fetch(`http://localhost:3000/api/product/${id}`);
+  const response = await fetch(`${fetchUrlById}/${id}`);
   if (!response.ok) {
     return null;
   }
