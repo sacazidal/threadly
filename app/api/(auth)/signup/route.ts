@@ -12,6 +12,10 @@ interface Request {
 
 export async function POST(req: NextRequest) {
   try {
+    if (!prisma) {
+      throw new Error("Prisma client not initialized");
+    }
+
     // получаю тело запроса
     const { email, firstName, lastName, passwordHash }: Request =
       await req.json();
