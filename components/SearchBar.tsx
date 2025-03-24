@@ -39,7 +39,7 @@ const SearchBar = () => {
     const delayDebounceFn = setTimeout(async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
+          `/api/search?q=${encodeURIComponent(query)}`
         );
         const data = await response.json();
         setResults(data);
