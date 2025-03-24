@@ -1,7 +1,7 @@
 const isProduction = process.env.NODE_ENV === "production";
 
 export const API_BASE_URL = isProduction
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  ? `https://threadly-three.vercel.app`
   : "http://localhost:3000";
 
 export const apiRoutes = {
