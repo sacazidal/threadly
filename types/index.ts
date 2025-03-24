@@ -6,3 +6,9 @@ export interface SearchResult {
   imageUrl: string;
   price: number;
 }
+
+export interface PageProps {
+  params: {
+    id: string;
+  };
+}
