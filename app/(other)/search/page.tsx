@@ -14,12 +14,12 @@ async function getSearchResults(query: string): Promise<SearchResult[]> {
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: { q: string };
+  searchParams: Promise<{ q: string }>;
 }) {
-  const awaitQuery = await searchParams;
-  const query = awaitQuery.q;
+  const resolvedParams = await searchParams;
+  const resolvedParamsQuery = resolvedParams.q;
 
-  if (!query) {
+  if (!resolvedParamsQuery) {
     return (
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Результаты поиска</h1>
@@ -28,11 +28,13 @@ export default async function SearchPage({
     );
   }
 
-  const results = await getSearchResults(query);
+  const results = await getSearchResults(resolvedParamsQuery);
 
   return (
     <div className="max-w-screen-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Результаты поиска: {query}</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Результаты поиска: {resolvedParamsQuery}
+      </h1>
       <ul className="space-y-4">
         {results.map((result) => (
           <li
