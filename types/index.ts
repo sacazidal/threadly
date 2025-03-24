@@ -8,6 +8,7 @@ export interface SearchResult {
 }
 
 export interface PageProps {
-  params: Record<string, string>;
-  searchParams?: Record<string, string | string[] | undefined>;
+  params: {
+    id: string;
+  };
 }

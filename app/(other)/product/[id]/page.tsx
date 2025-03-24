@@ -1,4 +1,4 @@
-import { PageProps, SearchResult } from "@/types";
+import { SearchResult } from "@/types";
 import Image from "next/image";
 
 async function getProductById(id: number): Promise<SearchResult | null> {
@@ -9,9 +9,14 @@ async function getProductById(id: number): Promise<SearchResult | null> {
   return response.json();
 }
 
-export default async function ProductPage({ params }: PageProps) {
-  const productId = await params;
-  const product = await getProductById(parseInt(productId.id));
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params;
+  const productId = parseInt(resolvedParams.id);
+  const product = await getProductById(productId);
 
   if (!product) {
     return (
