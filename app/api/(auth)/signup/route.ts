@@ -10,6 +10,8 @@ interface Request {
   passwordHash: string;
 }
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     if (!prisma) {
