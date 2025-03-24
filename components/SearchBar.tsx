@@ -72,7 +72,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl relative" ref={searchRef}>
+    <div className="w-full md:max-w-2xl relative" ref={searchRef}>
       <div className="flex items-center gap-x-2">
         <Input
           type="text"
@@ -82,7 +82,10 @@ const SearchBar = () => {
           className={"flex-1"}
           onFocus={() => setIsOpen(true)}
         />
-        <Button className="cursor-pointer" onClick={handleSearchClick}>
+        <Button
+          className="cursor-pointer md:block hidden"
+          onClick={handleSearchClick}
+        >
           Найти
         </Button>
       </div>

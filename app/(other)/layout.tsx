@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import OverHeader from "@/components/OverHeader";
+import TakeDiscount from "@/components/TakeDiscount";
 
 export default function RootLayout({
   children,
@@ -12,9 +13,12 @@ export default function RootLayout({
   return (
     <div className="flex flex-col min-h-screen">
       <Cookies />
-      <div className="flex flex-col px-3 grow">
+      <div className="flex flex-col grow">
         <OverHeader />
         <Header />
+        <div className="block md:hidden">
+          <TakeDiscount />
+        </div>
         <Navigation />
         <main>{children}</main>
       </div>

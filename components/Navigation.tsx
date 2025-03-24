@@ -1,4 +1,4 @@
 const Navigation = () => {
-  return <div>Navigation</div>;
+  return <div className="px-3">Navigation</div>;
 };
 export default Navigation;

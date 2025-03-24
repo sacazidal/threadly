@@ -12,10 +12,9 @@ async function getProductById(id: number): Promise<SearchResult | null> {
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: { id: number };
 }) {
-  const awaitProduct = await params;
-  const product = await getProductById(Number(awaitProduct.id));
+  const product = await getProductById(params.id);
 
   if (!product) {
     return (
@@ -41,7 +40,6 @@ export default async function ProductPage({
         <div className="w-1/2">
           <p className="text-lg">{product.description}</p>
           <p className="text-sm text-neutral-400">{product.category}</p>
-          <p className="text-lg">{product.price}</p>
         </div>
       </div>
     </div>

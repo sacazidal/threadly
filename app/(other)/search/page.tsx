@@ -31,7 +31,7 @@ export default async function SearchPage({
   const results = await getSearchResults(query);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="max-w-screen-2xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Результаты поиска: {query}</h1>
       <ul className="space-y-4">
         {results.map((result) => (
@@ -42,8 +42,6 @@ export default async function SearchPage({
             <div>
               <h2 className="font-semibold">{result.name}</h2>
               <p className="text-sm text-neutral-400">{result.category}</p>
-              <p className="text-sm text-neutral-400">{result.description}</p>
-              <p className="text-sm text-neutral-400">{result.price}</p>
             </div>
             <Image
               src={result.imageUrl}
