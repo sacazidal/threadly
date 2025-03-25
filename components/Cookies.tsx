@@ -39,7 +39,7 @@ const Cookies = () => {
       }`}
     >
       <div className="max-w-screen-2xl mx-auto flex items-center justify-center gap-x-2 px-3">
-        <div className="text-[8px] md:text-[10px] text-center">
+        <div className="text-[8px] md:text-[10px] text-center text-neutral-50">
           Продолжая использовать{" "}
           <span className={`${poppins.className} font-bold`}>threadly.ru</span>,
           вы подтверждаете, что согласны с{" "}
