@@ -1,6 +1,6 @@
 import { GiftIcon } from "lucide-react";
 
-export const navigations = [
+export const navigation = [
   {
     id: 1,
     label: "Подарок за покупку",
@@ -9,27 +9,52 @@ export const navigations = [
   },
   {
     id: 2,
-    label: "Женская мода",
+    label: "Лонгсливы",
     href: "/",
   },
   {
     id: 3,
-    label: "Мужская мода",
+    label: "Футболки",
     href: "/",
   },
   {
     id: 4,
-    label: "Обувь",
+    label: "Топы",
     href: "/",
   },
   {
     id: 5,
-    label: "Сумки и чемоданы",
+    label: "Худи и свитшоты",
     href: "/",
   },
   {
     id: 6,
-    label: "Детская одежда",
+    label: "Платья",
+    href: "/",
+  },
+  {
+    id: 7,
+    label: "Юбки",
+    href: "/",
+  },
+  {
+    id: 8,
+    label: "Брюки",
+    href: "/",
+  },
+  {
+    id: 9,
+    label: "Шорты",
+    href: "/",
+  },
+  {
+    id: 10,
+    label: "Легинсы",
+    href: "/",
+  },
+  {
+    id: 11,
+    label: "Бельё",
     href: "/",
   },
 ];
