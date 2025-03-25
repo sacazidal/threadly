@@ -5,12 +5,12 @@ import Link from "next/link";
 const Logo = () => {
   return (
     <Link href={"/"} className="flex items-center gap-x-2">
-      <div className="relative w-9 h-9 md:w-10 md:h-10 bg-neutral-200 rounded-sm">
+      <div className="relative w-9 h-9 md:w-10 md:h-10 dark:bg-neutral-200 bg-neutral-800 rounded-sm">
         <Image
           src={"/images/logo/threadly.webp"}
           alt="threadly"
           fill
-          className="p-1"
+          className="p-1 filter invert dark:invert-0"
           priority
         />
       </div>
