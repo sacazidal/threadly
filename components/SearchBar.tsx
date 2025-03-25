@@ -40,7 +40,10 @@ const SearchBar = () => {
     const delayDebounceFn = setTimeout(async () => {
       try {
         const response = await fetch(
-          `${apiRoutes.search}?q=${encodeURIComponent(query)}`
+          `${apiRoutes.search}?q=${encodeURIComponent(query)}`,
+          {
+            next: { revalidate: 60 },
+          }
         );
         const data = await response.json();
         setResults(data);
@@ -117,12 +120,16 @@ const SearchBar = () => {
                       {result.category}
                     </p>
                   </div>
-                  <div className="relative w-12 h-12 md:w-15 md:h-15">
+                  <div className="relative w-12 h-12 md:w-15 md:h-15 shrink-0">
                     <Image
                       src={result.imageUrl}
                       alt={result.name}
                       fill
-                      className="rounded-sm"
+                      sizes="(max-width: 640px) 15vw, 5vw"
+                      className="rounded-sm object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      quality={75}
                     />
                   </div>
                 </motion.li>
