@@ -13,7 +13,7 @@ const CloseCookies = ({ onClose }: CloseCookiesProps) => {
       onClick={onClose}
       variant={"default"}
       size={"xs"}
-      className={`cursor-pointer text-[9px] md:text-[10px] ${poppins.className}`}
+      className={`bg-white hover:bg-neutral-200 cursor-pointer text-black text-[9px] md:text-[10px] ${poppins.className}`}
     >
       OK
     </Button>
