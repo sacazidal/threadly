@@ -5,6 +5,8 @@ export const validPaths = [
   "/recovery",
   "/search",
   /^\/product\/\d+$/,
+  "/cart",
+  "/favourites",
 ];
 export const publicPaths = [
   "/",
@@ -13,4 +15,6 @@ export const publicPaths = [
   "/recovery",
   "/search",
   /^\/product\/\d+$/,
+  "/cart",
+  "/favourites",
 ];
