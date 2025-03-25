@@ -21,7 +21,7 @@ export default async function ProductPage({
 
   if (!product) {
     return (
-      <div className="container mx-auto p-4">
+      <div className="max-w-screen-2xl mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Товар не найден</h1>
       </div>
     );
@@ -30,19 +30,21 @@ export default async function ProductPage({
   return (
     <div className="max-w-screen-xl mx-auto p-4">
       <div className="flex flex-col md:flex-row gap-y-5 gap-x-15 items-center md:items-start justify-center">
-        <div className="">
+        <div className="md:w-1/2 flex justify-end">
           <Image
             src={product.imageUrl}
             alt={product.name}
             width={350}
             height={350}
             className="rounded-lg"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
           />
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col md:w-1/2">
           <h2 className="text-2xl font-bold">{product.name}</h2>
-          <p className="text-lg">{product.description}</p>
+          <p className="text-lg">{product.category}</p>
         </div>
       </div>
     </div>

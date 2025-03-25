@@ -2,7 +2,7 @@ import { ProductCardProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, index }: ProductCardProps) => {
   return (
     <Link href={`/product/${product.id}`} className="h-full max-w-xs">
       <div className="h-full flex flex-col rounded-lg shadow-sm dark:shadow-2xl transition-all duration-300 overflow-hidden">
@@ -13,7 +13,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             fill
             className="transition-transform duration-300 object-cover w-auto h-auto"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            loading="lazy"
+            priority={index < 3}
             decoding="async"
           />
         </div>

@@ -22,4 +22,5 @@ export interface ProductCardProps {
     imageUrl: string;
     category: string;
   };
+  index: number;
 }

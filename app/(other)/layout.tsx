@@ -18,7 +18,7 @@ export default function RootLayout({
         <div className="block md:hidden">
           <TakeDiscount />
         </div>
-        <main>{children}</main>
+        <main className="h-full">{children}</main>
       </div>
       <Footer />
     </div>

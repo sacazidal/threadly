@@ -104,7 +104,7 @@ const SearchBar = () => {
             className="absolute top-full left-0 right-0 dark:bg-neutral-800 bg-neutral-50 rounded-lg shadow-lg mt-2 z-10"
           >
             <ul className="py-2 space-y-3 px-2">
-              {results.map((result) => (
+              {results.map((result, index) => (
                 <motion.li
                   key={result.id}
                   initial={{ opacity: 0, y: 0 }}
@@ -127,7 +127,7 @@ const SearchBar = () => {
                       fill
                       sizes="(max-width: 640px) 15vw, 5vw"
                       className="rounded-sm object-cover"
-                      loading="lazy"
+                      priority={index === 0}
                       decoding="async"
                       quality={75}
                     />
