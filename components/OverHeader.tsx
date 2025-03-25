@@ -7,9 +7,7 @@ const OverHeader = () => {
   return (
     <div className="md:block hidden px-3">
       <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
-        <div className="flex items-center gap-x-2">
-          <Translate />
-        </div>
+        <Translate />
         <div className="flex items-center gap-x-7">
           <nav className="flex items-center gap-x-7">
             {navOverItems.map((item) => (
