@@ -7,8 +7,19 @@ export interface SearchResult {
   price: number;
 }
 
-export interface PageProps {
-  params: {
-    id: string;
+export interface UserActionsProps {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  onClick?: () => void;
+}
+
+export interface ProductCardProps {
+  product: {
+    id: number;
+    name: string;
+    price: number;
+    description: string;
+    imageUrl: string;
+    category: string;
   };
 }
