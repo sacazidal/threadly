@@ -98,9 +98,9 @@ const SearchBar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 right-0 bg-neutral-800 rounded-lg shadow-lg mt-2 z-10"
+            className="absolute top-full left-0 right-0 dark:bg-neutral-800 bg-neutral-50 rounded-lg shadow-lg mt-2 z-10"
           >
-            <ul className="py-2 px-2">
+            <ul className="py-2 space-y-3 px-2">
               {results.map((result) => (
                 <motion.li
                   key={result.id}
@@ -108,7 +108,7 @@ const SearchBar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="px-4 py-2 hover:bg-neutral-700 rounded-lg transition-all duration-300 flex items-center justify-between cursor-pointer border border-neutral-600"
+                  className="px-4 py-2 h-15 md:h-20 dark:hover:bg-neutral-700 hover:bg-neutral-200 rounded-lg transition-all duration-300 flex items-center justify-between cursor-pointer border dark:border-neutral-600"
                   onClick={() => handleResultClick(result.id)}
                 >
                   <div>
@@ -117,13 +117,14 @@ const SearchBar = () => {
                       {result.category}
                     </p>
                   </div>
-                  <Image
-                    src={result.imageUrl}
-                    alt={result.name}
-                    width={40}
-                    height={40}
-                    className="rounded-sm"
-                  />
+                  <div className="relative w-12 h-12 md:w-15 md:h-15">
+                    <Image
+                      src={result.imageUrl}
+                      alt={result.name}
+                      fill
+                      className="rounded-sm"
+                    />
+                  </div>
                 </motion.li>
               ))}
             </ul>
