@@ -10,6 +10,7 @@ const Logo = () => {
           src={"/images/logo/threadly.webp"}
           alt="threadly"
           fill
+          sizes="10vw"
           className="p-1 filter invert dark:invert-0"
           priority
         />

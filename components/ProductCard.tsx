@@ -12,6 +12,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
             alt={product.name}
             fill
             className="transition-transform duration-300 object-cover w-auto h-auto"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="p-4 flex-1 flex justify-between items-center">
