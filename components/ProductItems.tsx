@@ -12,7 +12,7 @@ async function getProducts() {
       category: true,
     },
     orderBy: { createdAt: "desc" },
-    take: 12,
+    take: 15,
   });
   return products;
 }
