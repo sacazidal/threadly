@@ -67,10 +67,11 @@ const Footer = () => {
               <Input
                 type="email"
                 placeholder="Ваш email"
-                className="px-2 lg:px-3 py-1 placeholder:text-xs lg:placeholder:text-sm lg:py-2 bg-neutral-900 text-sm rounded-l focus:outline-none focus:ring-1 focus:ring-primary-500 w-full"
+                className="px-2 lg:px-3 py-1 placeholder:text-xs lg:placeholder:text-sm lg:py-2 bg-neutral-900 text-sm focus:outline-none focus:ring-1 focus:ring-primary-500 w-full"
               />
-              <button className="bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-r text-sm font-medium transition-colors">
+              <button className="hover:text-amber-700 px-4 py-2 text-sm font-medium transition-colors">
                 <Mail className="h-4 w-4" />
+                <span className="sr-only">Отправить</span>
               </button>
             </div>
           </div>
