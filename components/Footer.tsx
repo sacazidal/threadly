@@ -14,11 +14,11 @@ const Footer = () => {
       <div className="max-w-screen-2xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-4 lg:mb-8 text-center md:text-start">
           <div className="space-y-4">
-            <h3
+            <h2
               className={`text-lg lg:text-xl font-bold text-white ${poppins.className}`}
             >
               Threadly.
-            </h3>
+            </h2>
             <p className="text-xs lg:text-sm">
               Современный маркетплейс модной одежды. Мы объединяем лучшие бренды
               и дизайнеров в одном месте.
