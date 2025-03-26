@@ -1,9 +1,13 @@
+import { Button } from "@/components/ui/button";
 import { apiRoutes } from "@/lib/api";
 import { SearchResult } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 
 async function getProductById(id: number): Promise<SearchResult | null> {
-  const response = await fetch(`${apiRoutes.product}/${id}`);
+  const response = await fetch(`${apiRoutes.product}/${id}`, {
+    next: { revalidate: 60 },
+  });
   if (!response.ok) {
     return null;
   }
@@ -21,8 +25,11 @@ export default async function ProductPage({
 
   if (!product) {
     return (
-      <div className="max-w-screen-2xl mx-auto p-4">
+      <div className="max-w-screen-2xl mx-auto p-4 text-center py-20">
         <h1 className="text-2xl font-bold mb-4">Товар не найден</h1>
+        <Button className="hover:underline cursor-pointer" asChild>
+          <Link href={"/"}>Вернуться на главную</Link>
+        </Button>
       </div>
     );
   }
@@ -43,8 +50,10 @@ export default async function ProductPage({
         </div>
 
         <div className="flex flex-col md:w-1/2">
-          <h2 className="text-2xl font-bold">{product.name}</h2>
-          <p className="text-lg">{product.category}</p>
+          <div className="">
+            <h2 className="text-2xl font-bold">{product.name}</h2>
+            <p className="text-lg">{product.category}</p>
+          </div>
         </div>
       </div>
     </div>

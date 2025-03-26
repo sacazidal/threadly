@@ -17,7 +17,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
             decoding="async"
           />
         </div>
-        <div className="p-4 flex-1 flex justify-between items-center">
+        <div className="p-2 md:p-4 flex-1 flex justify-between items-center">
           <div className="flex flex-col md:space-y-1">
             <h3 className="font-medium text-sm md:text-base dark:text-white hover:text-primary-600">
               {product.name}
@@ -26,8 +26,8 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
               {product.category}
             </p>
           </div>
-          <p className="font-bold md:text-base text-sm dark:text-white">
-            ${product.price}
+          <p className="font-bold md:text-base text-xs dark:text-white">
+            {product.price} руб.
           </p>
         </div>
       </div>
