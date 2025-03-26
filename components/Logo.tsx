@@ -8,7 +8,7 @@ const Logo = () => {
       <div className="relative w-9 h-9 md:w-10 md:h-10 dark:bg-neutral-200 bg-neutral-800 rounded-sm">
         <Image
           src={"/images/logo/threadly.webp"}
-          alt="threadly"
+          alt="Logo"
           fill
           sizes="10vw"
           className="p-1 filter invert dark:invert-0"

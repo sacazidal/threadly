@@ -19,9 +19,9 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         </div>
         <div className="p-2 md:p-4 flex-1 flex justify-between items-center">
           <div className="flex flex-col md:space-y-1">
-            <h3 className="font-medium text-sm md:text-base dark:text-white hover:text-primary-600">
+            <div className="font-medium text-sm md:text-base dark:text-white">
               {product.name}
-            </h3>
+            </div>
             <p className="text-xs md:text-sm dark:text-neutral-400">
               {product.category}
             </p>
