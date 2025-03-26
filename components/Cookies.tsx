@@ -43,14 +43,11 @@ const Cookies = () => {
           Продолжая использовать{" "}
           <span className={`${poppins.className} font-bold`}>threadly.ru</span>,
           вы подтверждаете, что согласны с{" "}
-          <Link href={"#usage-rules"} className="underline underline-offset-2">
+          <Link href={"/terms"} className="underline underline-offset-2">
             Правилами использования
           </Link>{" "}
           и{" "}
-          <Link
-            href={"#privacy-policy"}
-            className="underline underline-offset-2"
-          >
+          <Link href={"/privacy"} className="underline underline-offset-2">
             Политикой конфиденциальности
           </Link>
           , в том числе, с порядком использования cookie-файлов.
