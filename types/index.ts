@@ -24,3 +24,8 @@ export interface ProductCardProps {
   };
   index: number;
 }
+
+export interface FooterMenuProps {
+  children: React.ReactNode;
+  title: string;
+}
