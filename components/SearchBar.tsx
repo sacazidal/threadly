@@ -40,7 +40,7 @@ const SearchBar = () => {
     const delayDebounceFn = setTimeout(async () => {
       try {
         const response = await fetch(
-          `${apiRoutes.search}?q=${encodeURIComponent(query)}`,
+          `${apiRoutes.search}?q=${encodeURIComponent(query)}&limit=5`,
           {
             next: { revalidate: 60 },
           }

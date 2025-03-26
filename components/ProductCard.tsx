@@ -13,7 +13,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
             fill
             className="transition-transform duration-300 object-cover w-auto h-auto"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            priority={index < 3}
+            priority={index < 4}
             decoding="async"
           />
         </div>

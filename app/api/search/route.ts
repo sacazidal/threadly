@@ -3,7 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
-  const query = url.searchParams.get("q");
+
+  const search = (e: string) => url.searchParams.get(e);
+
+  const query = search("q");
+  const limit = search("limit");
 
   if (!query) {
     return NextResponse.json({ message: "Пустой запрос" }, { status: 400 });
@@ -18,7 +22,7 @@ export async function GET(request: NextRequest) {
           { category: { contains: query, mode: "insensitive" } },
         ],
       },
-      take: 5,
+      take: limit ? parseInt(limit) : undefined,
     });
 
     return NextResponse.json(products);
