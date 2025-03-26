@@ -6,7 +6,7 @@ export const policy = [
   },
   {
     id: 2,
-    label: "Условия использования",
+    label: "Правила использования",
     href: "/terms",
   },
   {

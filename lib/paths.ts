@@ -7,6 +7,8 @@ export const validPaths = [
   /^\/product\/\d+$/,
   "/cart",
   "/favourites",
+  "/terms",
+  "/privacy",
 ];
 export const publicPaths = [
   "/",
@@ -17,4 +19,6 @@ export const publicPaths = [
   /^\/product\/\d+$/,
   "/cart",
   "/favourites",
+  "/terms",
+  "/privacy",
 ];
