@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { validateEmail } from "@/utils/validation";
 
-const SendMail = () => {
+const SendMail = ({ className }: { className?: string }) => {
   const [email, setEmail] = useState<string>("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -99,7 +99,7 @@ const SendMail = () => {
       <Button
         onClick={handleSendMail}
         disabled={status === "loading"}
-        className="px-3 py-2"
+        className={`px-3 py-2 ${className}`}
         variant="ghostFooter"
       >
         {status === "loading" ? (

@@ -96,7 +96,7 @@ const TakeDiscount = () => {
                     <XIcon className="h-5 w-5" />
                   </button>
                 </div>
-                <SendMail />
+                <SendMail className="hover:bg-black dark:hover:bg-white hover:text-white" />
                 <p className="mt-3 text-xs text-neutral-500 dark:text-neutral-400">
                   Получите 10% скидку на первый заказ
                 </p>
