@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Facebook, Instagram, TwitterIcon, Mail } from "lucide-react";
+import { Facebook, Instagram, TwitterIcon } from "lucide-react";
 import FooterMenu from "./FooterMenu";
 import { company } from "@/constants/company";
 import FooterMenuItem from "./FooterMenuItem";
 import { helper } from "@/constants/helper";
 import { policy } from "@/constants/policy";
 import { poppins } from "@/lib/fonts";
-import { Input } from "./ui/input";
+import SendMail from "./SendMail";
 
 const Footer = () => {
   return (
@@ -63,17 +63,7 @@ const Footer = () => {
             <p className="text-xs lg:text-sm">
               Подпишитесь на рассылку и получите 10% скидку на первый заказ
             </p>
-            <div className="flex">
-              <Input
-                type="email"
-                placeholder="Ваш email"
-                className="px-2 lg:px-3 py-1 placeholder:text-xs lg:placeholder:text-sm lg:py-2 bg-neutral-900 text-sm focus:outline-none focus:ring-1 focus:ring-primary-500 w-full"
-              />
-              <button className="hover:text-amber-700 px-4 py-2 text-sm font-medium transition-colors">
-                <Mail className="h-4 w-4" />
-                <span className="sr-only">Отправить</span>
-              </button>
-            </div>
+            <SendMail />
           </div>
         </div>
 
