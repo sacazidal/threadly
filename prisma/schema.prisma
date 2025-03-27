@@ -21,15 +21,37 @@ model User {
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
-  name        String   @unique
-  description String
-  imageUrl    String   @default("null") @map("image_url")
-  price       Int
-  category    String
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  id                 Int                  @id @default(autoincrement())
+  name               String               @unique
+  description        String
+  imageUrl           String               @default("null") @map("image_url")
+  price              Int
+  category           String
+  createdAt          DateTime             @default(now()) @map("created_at")
+  updatedAt          DateTime             @updatedAt @map("updated_at")
+  ProductInformation ProductInformation[]
 
   @@index([name, category])
   @@map("products")
+}
+
+model ProductInformation {
+  id        Int     @id @default(autoincrement())
+  productId Int     @map("product_id")
+  product   Product @relation(fields: [productId], references: [id])
+  color     String
+  size      String
+  quantity  Int
+
+  @@index([productId])
+  @@map("product_information")
+}
+
+model Mailing {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([email])
+  @@map("mailings")
 }
