@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { apiRoutes } from "@/lib/api";
+import { poppins } from "@/lib/fonts";
 import { SearchResult } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,14 +36,14 @@ export default async function ProductPage({
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto p-4">
+    <div className="max-w-screen-xl mx-auto p-4 pt-8">
       <div className="flex flex-col md:flex-row gap-y-5 gap-x-15 items-center md:items-start justify-center">
         <div className="md:w-1/2 flex justify-end">
           <Image
             src={product.imageUrl}
             alt={product.name}
-            width={350}
-            height={350}
+            width={500}
+            height={500}
             className="rounded-lg"
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
@@ -50,9 +51,14 @@ export default async function ProductPage({
         </div>
 
         <div className="flex flex-col md:w-1/2">
-          <div className="">
-            <h2 className="text-2xl font-bold">{product.name}</h2>
-            <p className="text-lg">{product.category}</p>
+          <div className="flex justify-between items-center pr-40">
+            <div className="">
+              <h2 className={`text-2xl font-bold ${poppins.className}`}>
+                {product.name}
+              </h2>
+              <p className="text-lg font-medium">{product.price} руб.</p>
+            </div>
+            <div className="">Изб</div>
           </div>
         </div>
       </div>
