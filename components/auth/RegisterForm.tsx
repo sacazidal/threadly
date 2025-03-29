@@ -43,8 +43,10 @@ const RegisterForm = ({ onSwitch }: SwitchFormProps) => {
         body: JSON.stringify({ email, firstName, lastName, password }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Ошибка авторизации");
+        setError(data.error);
       }
     } catch (error) {
       console.error(error);
