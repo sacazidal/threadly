@@ -4,7 +4,6 @@ export const actions = [
     id: 2,
     Icon: UserIcon,
     label: "Войти",
-    href: "/login",
   },
   {
     id: 3,
