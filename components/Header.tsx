@@ -5,13 +5,22 @@ import SearchBar from "./SearchBar";
 import { actions } from "@/constants/userActions";
 import UserActions from "./UserActions";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import AuthModal from "./auth/AuthModal";
 
 const Header = () => {
   const { push } = useRouter();
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+  const [authModalType, setAuthModalType] = useState<
+    "login" | "register" | "recovery"
+  >("login");
 
-  const handleActionClick = (href: string) => {
+  const handleActionClick = (href?: string) => {
     if (href) {
       push(href);
+    } else {
+      setIsAuthModalOpen(true);
+      setAuthModalType("login");
     }
   };
 
@@ -32,6 +41,12 @@ const Header = () => {
             />
           ))}
         </div>
+
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+          initialForm={authModalType}
+        />
 
         <SearchBar />
       </div>
