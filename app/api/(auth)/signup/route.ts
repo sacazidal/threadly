@@ -7,32 +7,22 @@ interface Request {
   email: string;
   firstName: string;
   lastName: string;
-  passwordHash: string;
+  password: string;
 }
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+  // получаю тело запроса
+  const { email, firstName, lastName, password }: Request = await req.json();
+
+  // проверяю, что все поля заполнены и прошли валидацию
+  const validationError = validationReg(email, firstName, lastName, password);
+  if (validationError) {
+    return NextResponse.json({ error: validationError }, { status: 400 });
+  }
+
   try {
-    if (!prisma) {
-      throw new Error("Prisma client not initialized");
-    }
-
-    // получаю тело запроса
-    const { email, firstName, lastName, passwordHash }: Request =
-      await req.json();
-
-    // проверяю, что все поля заполнены и прошли валидацию
-    const validationError = validationReg(
-      email,
-      firstName,
-      lastName,
-      passwordHash
-    );
-    if (validationError) {
-      return NextResponse.json({ error: validationError }, { status: 400 });
-    }
-
     // проверяю, что email уникален
     const existingUser = await prisma.user.findFirst({
       where: { email },
@@ -45,7 +35,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const hashedPassword = await bcrypt.hash(passwordHash, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // создаю нового пользователя
     const newUser = await prisma.user.create({
