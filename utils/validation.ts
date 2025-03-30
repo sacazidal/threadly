@@ -1,9 +1,15 @@
 import { ERROR_MESSAGES } from "./errorMessages";
-import { emailRegex, passwordRegex, usernameRegex } from "./regex";
+import { codeRegex, emailRegex, passwordRegex, usernameRegex } from "./regex";
 
 export const validateEmail = (email: string | undefined): string | null => {
   if (!email) return ERROR_MESSAGES.EMAIL_REQUIRED;
   if (!emailRegex.test(email)) return ERROR_MESSAGES.EMAIL_INVALID;
+  return null;
+};
+
+export const validateCode = (code: string | undefined): string | null => {
+  if (!code) return ERROR_MESSAGES.CODE_REQUIRED;
+  if (!codeRegex.test(code)) return ERROR_MESSAGES.CODE_INVALID;
   return null;
 };
 
@@ -84,6 +90,28 @@ export const validationRecovery = (
 ): string | null => {
   const emailError = validateEmail(email);
   if (emailError) return emailError;
+
+  return null;
+};
+
+export const validateRecoveryCode = (
+  code: string | undefined
+): string | null => {
+  const codeError = validateCode(code);
+  if (codeError) return codeError;
+
+  return null;
+};
+
+export const validationChangePassword = (
+  password: string | undefined,
+  passwordTwo: string | undefined
+): string | null => {
+  const passwordError = validatePassword(password);
+  if (passwordError) return passwordError;
+
+  const passwordMatchError = validatePasswordMatch(password, passwordTwo);
+  if (passwordMatchError) return passwordMatchError;
 
   return null;
 };
