@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       where: { email },
     });
 
-    if (existingEmail.length > 0) {
+    if (existingEmail && existingEmail.length > 0) {
       return NextResponse.json(
         { error: "Вы уже подписаны на рассылку" },
         { status: 400 }
