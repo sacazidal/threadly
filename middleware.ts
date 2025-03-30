@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
 
   const token = request.cookies.get("token")?.value;
 
-  if (token && isPublicPath(path)) {
+  if (!token && !isPublicPath(path)) {
     const redirectPath = "/";
     return NextResponse.redirect(new URL(redirectPath, request.url));
   }
