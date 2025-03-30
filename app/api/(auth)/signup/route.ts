@@ -3,7 +3,7 @@ import { validationReg } from "@/utils/validation";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
 
-interface Request {
+interface SignUpRequest {
   email: string;
   firstName: string;
   lastName: string;
@@ -14,7 +14,8 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   // получаю тело запроса
-  const { email, firstName, lastName, password }: Request = await req.json();
+  const { email, firstName, lastName, password }: SignUpRequest =
+    await req.json();
 
   // проверяю, что все поля заполнены и прошли валидацию
   const validationError = validationReg(email, firstName, lastName, password);
