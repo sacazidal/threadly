@@ -41,15 +41,15 @@ export async function POST(request: NextRequest) {
         { error: "Вы уже подписаны на рассылку" },
         { status: 400 }
       );
+    } else {
+      await prisma.mailing.create({
+        data: {
+          email,
+        },
+      });
+
+      await transporter.sendMail(mailOptions);
     }
-
-    await prisma.mailing.create({
-      data: {
-        email,
-      },
-    });
-
-    await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
       { message: "Успешно подписались на рассылку" },
