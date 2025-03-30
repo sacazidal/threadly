@@ -171,7 +171,7 @@ const RecoveryForm = ({ onBackToLogin, onBackToSignUp }: SwitchFormProps) => {
         </div>
       }
     >
-      {step === (1 && 2) && (
+      {(step === 1 || step === 2) && (
         <FieldForm
           label="Почта"
           value={email}
@@ -179,7 +179,7 @@ const RecoveryForm = ({ onBackToLogin, onBackToSignUp }: SwitchFormProps) => {
           type="email"
           id="email"
           placeholder="eye@example.com"
-          disabled={step === (1 && 2)}
+          disabled={step === 2}
         />
       )}
       {step === 2 && (
