@@ -72,6 +72,7 @@ const SendMail = ({ className }: { className?: string }) => {
           type="email"
           placeholder="Ваш email"
           value={email}
+          autoComplete="on"
           onChange={(e) => {
             setEmail(e.target.value);
             setIsTyping(true);

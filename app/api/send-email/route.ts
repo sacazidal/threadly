@@ -15,6 +15,17 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    const existingEmail = await prisma.mailing.findUnique({
+      where: { email },
+    });
+
+    if (existingEmail) {
+      return NextResponse.json(
+        { error: "Вы уже подписаны на рассылку" },
+        { status: 400 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       host: "smtp.mail.ru",
       port: 465,
@@ -32,24 +43,13 @@ export async function POST(request: NextRequest) {
       text: "Ваш промокод - GLORY2025",
     };
 
-    const existingEmail = await prisma.mailing.findUnique({
-      where: { email },
+    await prisma.mailing.create({
+      data: {
+        email,
+      },
     });
 
-    if (existingEmail) {
-      return NextResponse.json(
-        { error: "Вы уже подписаны на рассылку" },
-        { status: 400 }
-      );
-    } else {
-      await prisma.mailing.create({
-        data: {
-          email,
-        },
-      });
-
-      await transporter.sendMail(mailOptions);
-    }
+    await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
       { message: "Успешно подписались на рассылку" },
