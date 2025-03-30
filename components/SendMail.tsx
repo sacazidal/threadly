@@ -108,7 +108,7 @@ const SendMail = ({ className }: { className?: string }) => {
         ) : (
           <MailIcon className="h-4 w-4" />
         )}
-        <span className="sr-only">Отправить</span>
+        <span className="sr-only">Подписаться</span>
       </Button>
     </div>
   );
