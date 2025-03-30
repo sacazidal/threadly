@@ -8,16 +8,32 @@ datasource db {
 }
 
 model User {
-  id           Int      @id @default(autoincrement())
-  email        String   @unique
-  firstName    String   @map("first_name")
-  lastName     String   @map("last_name")
-  passwordHash String   @map("password_hash")
-  createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt    DateTime @updatedAt @map("updated_at")
+  id           Int        @id @default(autoincrement())
+  email        String     @unique
+  firstName    String     @map("first_name")
+  lastName     String     @map("last_name")
+  passwordHash String     @map("password_hash")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+  Recovery     Recovery[]
 
   @@index([email])
   @@map("users")
+}
+
+model Recovery {
+  id        Int      @id @default(autoincrement())
+  email     String
+  code      String
+  isConfirm Boolean  @default(false)
+  expiresAt DateTime @map("expires_at")
+  userId    Int      @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([email])
+  @@map("recovery")
 }
 
 model Product {
