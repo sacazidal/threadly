@@ -32,11 +32,11 @@ export async function POST(request: NextRequest) {
       text: "Ваш промокод - GLORY2025",
     };
 
-    const existingEmail = await prisma.mailing.findMany({
+    const existingEmail = await prisma.mailing.findUnique({
       where: { email },
     });
 
-    if (existingEmail && existingEmail.length > 0) {
+    if (existingEmail) {
       return NextResponse.json(
         { error: "Вы уже подписаны на рассылку" },
         { status: 400 }
