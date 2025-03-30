@@ -10,6 +10,8 @@ const FieldForm = ({
   type,
   id,
   placeholder,
+  disabled,
+  maxLength,
 }: FieldFormProps) => {
   return (
     <div className="grid gap-1">
@@ -23,6 +25,8 @@ const FieldForm = ({
         id={id}
         name={type}
         type={type}
+        maxLength={maxLength}
+        disabled={disabled}
         placeholder={placeholder}
         className="dark:border-neutral-700 h-8 md:h-9 text-xs md:text-sm placeholder:text-xs md:placeholder:text-sm"
         value={value}
