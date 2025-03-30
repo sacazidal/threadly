@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const existingEmail = await prisma.mailing.findUnique({
+    const existingEmail = await prisma.mailing.findFirst({
       where: { email },
     });
 
