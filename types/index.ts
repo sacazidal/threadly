@@ -64,6 +64,8 @@ export interface FieldFormProps {
   id: string;
   placeholder?: string;
   recovery?: React.ReactNode;
+  disabled?: boolean;
+  maxLength?: number;
 }
 
 export type AuthModalType = "login" | "register" | "recovery";
