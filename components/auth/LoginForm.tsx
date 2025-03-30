@@ -35,7 +35,8 @@ const LoginForm = ({ onSwitch, onRecovery }: SwitchFormProps) => {
       });
 
       if (!response.ok) {
-        throw new Error("Ошибка авторизации");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Ошибка авторизации");
       }
     } catch (error) {
       console.error(error);
@@ -81,6 +82,7 @@ const LoginForm = ({ onSwitch, onRecovery }: SwitchFormProps) => {
         id="password"
         recovery={
           <button
+            type="button"
             onClick={onRecovery}
             className="ml-auto underline-offset-4 hover:underline text-xs md:text-sm"
           >
